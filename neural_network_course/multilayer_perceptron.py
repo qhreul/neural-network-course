@@ -127,24 +127,23 @@ class MultiLayerPerceptron:
         
         return mse
 
-
-
 # test code
-mlp = MultiLayerPerceptron(layers=[2, 2, 1])  # mlp
+def training():
+    mlp = MultiLayerPerceptron(layers=[2, 2, 1])  # mlp
 
-for i in range(3000):
-    mse = 0.0
-    mse += mlp.backprobagation([0, 0], [0])
-    mse += mlp.backprobagation([0, 1], [1])
-    mse += mlp.backprobagation([1, 0], [1])
-    mse += mlp.backprobagation([1, 1], [0])
-    mse = mse / 4
-    if (i % 100 == 0):
-        print(mse)
+    for i in range(3000):
+        mse = 0.0
+        mse += mlp.backprobagation([0, 0], [0])
+        mse += mlp.backprobagation([0, 1], [1])
+        mse += mlp.backprobagation([1, 0], [1])
+        mse += mlp.backprobagation([1, 1], [0])
+        mse = mse / 4
+        if (i % 100 == 0):
+            print(mse)
 
-mlp.print_weights()
-print("MLP:")
-print("0 0 = {0:.10f}".format(mlp.run([0, 0])[0]))
-print("0 1 = {0:.10f}".format(mlp.run([0, 1])[0]))
-print("1 0 = {0:.10f}".format(mlp.run([1, 0])[0]))
-print("1 1 = {0:.10f}".format(mlp.run([1, 1])[0]))
+    mlp.print_weights()
+    print("MLP:")
+    print("0 0 = {0:.10f}".format(mlp.run([0, 0])[0]))
+    print("0 1 = {0:.10f}".format(mlp.run([0, 1])[0]))
+    print("1 0 = {0:.10f}".format(mlp.run([1, 0])[0]))
+    print("1 1 = {0:.10f}".format(mlp.run([1, 1])[0]))
